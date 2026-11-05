@@ -1,0 +1,373 @@
+/* ========================================================
+   My To-Do List Web Application - Main Stylesheet
+   Designed for Semester 3 Web Development Project
+   ======================================================== */
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success: #16a34a;
+    --success-light: #f0fdf4;
+    --warning: #f59e0b;
+    --warning-hover: #d97706;
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
+    --secondary: #64748b;
+    --secondary-hover: #475569;
+    --bg-page: #f8fafc;
+    --bg-surface: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.navbar-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand:hover {
+    color: var(--primary);
+}
+
+/* ---------------- Container & Typography ---------------- */
+.container {
+    max-width: 960px;
+    margin: 32px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-primary,
+.btn-add,
+.btn-save {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-add:hover,
+.btn-save:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+}
+
+.btn-edit {
+    background-color: var(--warning);
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.btn-edit:hover {
+    background-color: var(--warning-hover);
+    color: #ffffff;
+}
+
+.btn-delete {
+    background-color: var(--danger);
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.btn-delete:hover {
+    background-color: var(--danger-hover);
+    color: #ffffff;
+}
+
+.btn-secondary,
+.btn-cancel {
+    background-color: var(--secondary);
+    color: #ffffff;
+}
+
+.btn-secondary:hover,
+.btn-cancel:hover {
+    background-color: var(--secondary-hover);
+    color: #ffffff;
+}
+
+/* ---------------- Tasks Table ---------------- */
+.table-responsive {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tasks-table thead {
+    background-color: #f8fafc;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tasks-table th {
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--secondary);
+}
+
+.tasks-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.tasks-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tasks-table tbody tr:hover {
+    background-color: #fcfdfe;
+}
+
+.task-title-cell {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.task-desc-cell {
+    color: var(--text-muted);
+    max-width: 300px;
+    word-break: break-word;
+}
+
+.done-cell {
+    text-align: center;
+    width: 70px;
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--success);
+    vertical-align: middle;
+    transition: transform 0.1s ease;
+}
+
+.task-checkbox:hover {
+    transform: scale(1.15);
+}
+
+.created-cell {
+    color: var(--text-muted);
+    font-size: 13px;
+    white-space: nowrap;
+    width: 150px;
+}
+
+.actions-cell {
+    text-align: center;
+    white-space: nowrap;
+    width: 140px;
+}
+
+.actions-cell .btn {
+    margin: 0 2px;
+}
+
+/* Completed Task Visual Distinction */
+.task-done {
+    background-color: var(--success-light) !important;
+}
+
+.task-done .task-title-cell {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.task-done .task-desc-cell,
+.task-done .created-cell {
+    color: #94a3b8;
+}
+
+/* Empty State */
+.empty-state-row td {
+    background-color: #f8fafc;
+    text-align: center;
+    padding: 24px 16px !important;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-style: normal;
+}
+
+/* ---------------- Form Cards (Add / Edit Task) ---------------- */
+.form-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 28px 32px;
+    box-shadow: var(--shadow-sm);
+    max-width: 720px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form-check label {
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--success);
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* ---------------- Responsive Design ---------------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 14px;
+        margin: 20px auto;
+    }
+
+    .form-card {
+        padding: 20px 16px;
+    }
+
+    .tasks-table th,
+    .tasks-table td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .actions-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: auto;
+    }
+
+    .actions-cell .btn {
+        margin: 0;
+        width: 100%;
+    }
+}
